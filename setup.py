@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='django-searchable-select',
-    version='0.4',
+    version='0.5',
     description='django-searchable-select - a better and faster multiple selection widget with suggestions for Django',
     long_description='A better and faster multiple selection widget with suggestions for Django. Provides replacement for standard widget of ManyToManyField.',
     author="Andrew Dunai",
