@@ -14,7 +14,7 @@ setup(
     author_email='andrew@dun.ai',
     url='https://github.com/and3rson/django-searchable-select',
     license='GPLv2',
-    packages=['searchable-select'],
+    packages=['searchableselect'],
     include_package_data=True,
     install_requires=['setuptools', 'django'],
     zip_safe=False,
