@@ -1,9 +1,10 @@
+# coding=utf-8
 import os
 from setuptools import setup
 
 setup(
     name='django-searchable-select',
-    version='0.6',
+    version='0.8',
     description='django-searchable-select - a better and faster multiple selection widget with suggestions for Django',
     long_description="""django-searchable-select
 ========================
@@ -32,7 +33,7 @@ Before
 ~~~~~~
 
 .. figure:: https://habrastorage.org/files/dd9/f17/87e/dd9f1787e0dd4e05826fdde08e270609.png
-:alt: Before
+   :alt: Before
 
    Before
 
@@ -40,7 +41,7 @@ After
 ~~~~~
 
 .. figure:: https://habrastorage.org/files/db2/c87/460/db2c87460992470e9d8e19da307c169d.png
-:alt: Before
+   :alt: Before
 
    Before
 
@@ -53,7 +54,7 @@ Installation
 
        $ pip install django-searchable-select
 
-2. Add 'searchableselect' to your settings.
+2. Add ‘searchableselect’ to your settings.
 
    .. code:: python
 
@@ -100,13 +101,15 @@ Installation
 
        admin.site.register(models.MyModel, MyModelAdmin)
 
-   Remember to **always** initialize ``SearchableSelect`` with two
-   keyword arguments: ``model`` and ``search_field``.
+   Remember to **always** initialize ``SearchableSelect`` with three
+   keyword arguments: ``model``, ``search_field`` and ``many``.
 
    -  ``model`` is the string in form ``APP_NAME.MODEL_NAME``
-      representing your model in the project, e. g. 'cities.City'
+      representing your model in the project, e. g. ‘cities.City’
    -  ``search_field`` is the field within model that will be used to
-      perform filtering, e. g. `name`
+      perform filtering, e. g. ‘name’
+   -  ``many`` must be ``True`` for ``ManyToManyField`` and ``False``
+      for ``ForeignKey``.
 
 Known issues
 ============
@@ -116,14 +119,13 @@ Known issues
 Contributing
 ============
 
-I'm looking forward to bug reports and any kind of contribution.
+I’m looking forward to bug reports and any kind of contribution.
 
 License
 =======
 
 You are free to use this where you want as long as you keep the author
-reference. Please see LICENSE for more info.
-""",
+reference. Please see LICENSE for more info.""",
     author="Andrew Dunai",
     author_email='andrew@dun.ai',
     url='https://github.com/and3rson/django-searchable-select',

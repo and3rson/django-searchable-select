@@ -66,7 +66,7 @@ You can use this as custom widget for `ManyToManyField`.
             model = models.MyModel
             exclude = ()
             widgets = {
-                'cities': SearchableSelect(model='cities.City', search_field='name')
+                'cities': SearchableSelect(model='cities.City', search_field='name', many=True)
             }
     
     
@@ -76,10 +76,11 @@ You can use this as custom widget for `ManyToManyField`.
     admin.site.register(models.MyModel, MyModelAdmin)
     ```
 
-    Remember to **always** initialize `SearchableSelect` with two keyword arguments: `model` and `search_field`.
+    Remember to **always** initialize `SearchableSelect` with three keyword arguments: `model`, `search_field` and `many`.
     
     - `model` is the string in form `APP_NAME.MODEL_NAME` representing your model in the project, e. g. 'cities.City'
     - `search_field` is the field within model that will be used to perform filtering, e. g. 'name'
+    - `many` must be `True` for `ManyToManyField` and `False` for `ForeignKey`.
 
 # Known issues
 
