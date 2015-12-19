@@ -84,7 +84,7 @@ You can use this as custom widget for `ManyToManyField`.
 
 # Known issues
 
-  - Not tested with `ForeignKey` fields.
+  - Not tested with empty fields.
 
 # Contributing
 

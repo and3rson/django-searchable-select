@@ -114,7 +114,7 @@ Installation
 Known issues
 ============
 
--  Not tested with ``ForeignKey`` fields.
+-  Not tested with empty fields.
 
 Contributing
 ============

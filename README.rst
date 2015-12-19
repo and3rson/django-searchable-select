@@ -106,7 +106,7 @@ Installation
 Known issues
 ============
 
-- Not tested for empty sets.
+- Not tested with empty fields.
 
 Contributing
 ============
