@@ -8,7 +8,7 @@
     {% for value in values %}
         <div class="chip">
         {{ value.name }}
-        <input type="hidden" name="{{ field_name }}" value="{{ value.id }}" />
+        <input type="hidden" name="{{ field_name }}" value="{{ value.pk }}" />
         </div>
     {% endfor %}
 </div>
