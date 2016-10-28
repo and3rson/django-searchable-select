@@ -59,21 +59,22 @@ You can use this as custom widget for `ManyToManyField`.
 
     ```python
     from django import models, forms
-    from models import MyModel
+    from searchableselect.widgets import SearchableSelect
+    from models import Traveler
     
-    class MyModelForm(forms.ModelForm):
+    class TravelerForm(forms.ModelForm):
         class Meta:
-            model = models.MyModel
+            model = Traveler
             exclude = ()
             widgets = {
-                'cities': SearchableSelect(model='cities.City', search_field='name', many=True)
+                'cities_visited': SearchableSelect(model='cities.City', search_field='name', many=True)
             }
     
     
-    class MyModelAdmin(admin.ModelAdmin):
-        form = Form
+    class TravelerAdmin(admin.ModelAdmin):
+        form = TravelerForm
         
-    admin.site.register(models.MyModel, MyModelAdmin)
+    admin.site.register(Traveler, TravelerAdmin)
     ```
 
     Remember to **always** initialize `SearchableSelect` with three keyword arguments: `model`, `search_field` and `many`.
