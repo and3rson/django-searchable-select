@@ -85,7 +85,7 @@ You can use this as custom widget for `ManyToManyField`.
 
 # Example app
 
-Just run the project from `example` directory, head to [http://127.0.0.1:8000], login as `admin`/`admin` and try adding Cats!
+Just run the project from `example` directory, head to http://127.0.0.1:8000, login as `admin`/`admin` and try adding Cats!
 
 # Known issues
 

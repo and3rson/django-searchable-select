@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='django-searchable-select',
-    version='1.3',
+    version='1.4',
     description='django-searchable-select - a better and faster multiple selection widget with suggestions for Django',
     long_description="""django-searchable-select
 ========================
@@ -85,21 +85,22 @@ Installation
    .. code:: python
 
        from django import models, forms
-       from models import MyModel
+       from searchableselect.widgets import SearchableSelect
+       from models import Traveler
 
-       class MyModelForm(forms.ModelForm):
+       class TravelerForm(forms.ModelForm):
            class Meta:
-               model = models.MyModel
+               model = Traveler
                exclude = ()
                widgets = {
-                   'cities': SearchableSelect(model='cities.City', search_field='name')
+                   'cities_visited': SearchableSelect(model='cities.City', search_field='name')
                }
 
 
-       class MyModelAdmin(admin.ModelAdmin):
-           form = Form
+       class TravelerAdmin(admin.ModelAdmin):
+           form = TravelerForm
 
-       admin.site.register(models.MyModel, MyModelAdmin)
+       admin.site.register(Traveler, TravelerAdmin)
 
    Remember to **always** initialize ``SearchableSelect`` with three
    keyword arguments: ``model``, ``search_field`` and ``many``.
@@ -110,6 +111,12 @@ Installation
       perform filtering, e. g. ‘name’
    -  ``many`` must be ``True`` for ``ManyToManyField`` and ``False``
       for ``ForeignKey``.
+
+Example app                                                                       │                                                                                    
+===========
+                                                                                    │
+Just run the project from `example` directory, head to http://127.0.0.1:8000, login as ``admin``/``admin`` and try adding Cats!
+
 
 Known issues
 ============
