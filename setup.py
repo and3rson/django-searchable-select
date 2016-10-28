@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='django-searchable-select',
-    version='1.4',
+    version='1.4.1',
     description='django-searchable-select - a better and faster multiple selection widget with suggestions for Django',
     long_description="""django-searchable-select
 ========================
@@ -112,11 +112,10 @@ Installation
    -  ``many`` must be ``True`` for ``ManyToManyField`` and ``False``
       for ``ForeignKey``.
 
-Example app                                                                       │                                                                                    
+Example app
 ===========
-                                                                                    │
-Just run the project from `example` directory, head to http://127.0.0.1:8000, login as ``admin``/``admin`` and try adding Cats!
 
+Just run the project from `example` directory, head to http://127.0.0.1:8000, login as ``admin``/``admin`` and try adding Cats!
 
 Known issues
 ============
