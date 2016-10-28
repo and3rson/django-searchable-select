@@ -5,6 +5,7 @@
 
 .twitter-typeahead .tt-input {
     width: 100% !important;
+    box-sizing: border-box;
 }
 
 .twitter-typeahead .tt-hint {
@@ -126,4 +127,18 @@ form .chips .control {
     font-size: 0.9rem;
     line-height: 0.9rem;
     vertical-align: top;
+}
+
+.form-row.form-row-no-overflows {
+    overflow: visible;
+}
+
+.form-row.form-row-no-overflows::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.form-row-no-overflows .related-widget-wrapper {
+    overflow: visible;
 }

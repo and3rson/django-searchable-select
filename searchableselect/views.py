@@ -1,4 +1,11 @@
-from django.db.models.loading import get_model
+try:
+    # Django <=1.9
+    from django.db.models.loading import get_model
+except ImportError:
+    # Django 1.10+
+    from django.apps import apps
+    get_model = apps.get_model
+
 from django.http import JsonResponse
 from django.contrib.admin.views.decorators import staff_member_required
 

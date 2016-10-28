@@ -1,7 +1,20 @@
 from django import forms
-from django.db.models.loading import get_model
+
+try:
+    # Django <=1.9
+    from django.db.models.loading import get_model
+except ImportError:
+    # Django 1.10+
+    from django.apps import apps
+    get_model = apps.get_model
+
 from django.template.loader import render_to_string
-from django.utils.datastructures import MergeDict, MultiValueDict
+from django.utils.datastructures import MultiValueDict
+try:
+    from django.utils.datastructures import MergeDict
+    DICT_TYPES = (MultiValueDict, MergeDict)
+except:
+    DICT_TYPES = (MultiValueDict,)
 
 
 class SearchableSelect(forms.CheckboxSelectMultiple):
@@ -12,6 +25,7 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
             )
         }
         js = (
+            'searchableselect/jquery-2.2.4.min.js',
             'searchableselect/bloodhound.min.js',
             'searchableselect/typeahead.jquery.min.js',
             'searchableselect/main.js',
@@ -48,6 +62,6 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
         ))
 
     def value_from_datadict(self, data, files, name):
-        if self.many and isinstance(data, (MultiValueDict, MergeDict)):
+        if self.many and isinstance(data, DICT_TYPES):
             return data.getlist(name)
         return data.get(name, None)

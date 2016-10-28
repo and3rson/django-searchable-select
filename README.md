@@ -82,6 +82,10 @@ You can use this as custom widget for `ManyToManyField`.
     - `search_field` is the field within model that will be used to perform filtering, e. g. 'name'
     - `many` must be `True` for `ManyToManyField` and `False` for `ForeignKey`.
 
+# Example app
+
+Just run the project from `example` directory, head to [http://127.0.0.1:8000], login as `admin`/`admin` and try adding Cats!
+
 # Known issues
 
   - Not tested with empty fields.
