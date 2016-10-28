@@ -17,7 +17,6 @@ def filter_models(request):
     value = request.GET.get('q')
 
     model = get_model(model_name)
-    print {'{}__icontains'.format(search_field): value}
 
     values = model.objects.filter(**{'{}__icontains'.format(search_field): value})[:10]
     values = [

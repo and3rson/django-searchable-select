@@ -10,7 +10,7 @@ except ImportError:
 
 from django.template.loader import render_to_string
 from django.utils.datastructures import MultiValueDict
-try:
+try:  # pragma: no cover
     from django.utils.datastructures import MergeDict
     DICT_TYPES = (MultiValueDict, MergeDict)
 except:
@@ -42,7 +42,7 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
         if value is None:
             value = []
 
-        if not isinstance(value, (list, tuple)):
+        if not isinstance(value, (list, tuple)):  # pragma: no cover
             # This is a ForeignKey field. We must allow only one item.
             value = [value]
         else:

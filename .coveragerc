@@ -1,0 +1,15 @@
+[run]
+omit =
+    */migrations/*
+    */management/*
+    */templatetags/*
+    */local_settings.py
+    */local_urls.py
+    /manage.py
+    */wsgi.py
+    */admin.py
+    */__init__.py
+    */celery.py
+    */etl/*
+    */integration_tests/*
+source = searchableselect
