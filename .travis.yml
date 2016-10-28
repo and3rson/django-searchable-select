@@ -3,7 +3,7 @@ python:
 - '2.7'
 install:
 - pip install -r example/requirements.txt
-- example/manage.py collectstatic
+- example/manage.py collectstatic --noinput
 script:
 - coverage run example/manage.py test example/
 - coverage report
