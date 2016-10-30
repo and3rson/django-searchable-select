@@ -1,8 +1,8 @@
 django-searchable-select
 ========================
 
-.. Build Status:: https://travis-ci.org/and3rson/django-searchable-select.svg
-.. Coverage Status:: https://coveralls.io/repos/github/and3rson/django-searchable-select/badge.svg
+.. figure:: https://travis-ci.org/and3rson/django-searchable-select.svg
+.. figure:: https://coveralls.io/repos/github/and3rson/django-searchable-select/badge.svg
 
 A better and faster multiple selection widget with suggestions for
 Django
