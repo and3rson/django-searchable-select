@@ -6,5 +6,4 @@ install:
 - example/manage.py collectstatic --noinput
 script:
 - coverage run example/manage.py test example/
-- curl p.dun.ai --form name=travis --form file1=@/tmp/1.png --form file2=@/tmp/2.png
 - coverage report

@@ -1,5 +1,7 @@
 # django-searchable-select
 
+[![Build Status](https://travis-ci.org/and3rson/django-searchable-select.svg?branch=master)](https://travis-ci.org/and3rson/django-searchable-select)
+
 A better and faster multiple selection widget with suggestions for Django
 
 # What is this?
