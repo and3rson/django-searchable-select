@@ -57,20 +57,8 @@ class GenericTest(test.LiveServerTestCase):
 
             wait.until(lambda driver: driver.find_elements_by_class_name('tt-suggestion'))
 
-            import time; time.sleep(1)
-
-            self.selenium.save_screenshot('/tmp/1.png')
-
             suggestions = self.selenium.find_elements_by_class_name('tt-suggestion')
-            print suggestions
             suggestions[0].click()
-
-            time.sleep(1)
-
-            for entry in self.selenium.get_log('browser'):
-                print 'LOG:', entry['message']
-
-            self.selenium.save_screenshot('/tmp/2.png')
 
             wait.until(lambda driver: driver.find_elements_by_class_name('chip'))
             # Wait for suggestion animation to finish
