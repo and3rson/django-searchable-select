@@ -1,6 +1,9 @@
 django-searchable-select
 ========================
 
+.. Build Status:: https://travis-ci.org/and3rson/django-searchable-select.svg
+.. Coverage Status:: https://coveralls.io/repos/github/and3rson/django-searchable-select/badge.svg
+
 A better and faster multiple selection widget with suggestions for
 Django
 
@@ -77,21 +80,22 @@ Installation
    .. code:: python
 
        from django import models, forms
-       from models import MyModel
+       from searchableselect.widgets import SearchableSelect
+       from models import Traveler
 
-       class MyModelForm(forms.ModelForm):
+       class TravelerForm(forms.ModelForm):
            class Meta:
-               model = models.MyModel
+               model = Traveler
                exclude = ()
                widgets = {
-                   'cities': SearchableSelect(model='cities.City', search_field='name', many=True)
+                   'cities_visited': SearchableSelect(model='cities.City', search_field='name')
                }
 
 
-       class MyModelAdmin(admin.ModelAdmin):
-           form = Form
+       class TravelerAdmin(admin.ModelAdmin):
+           form = TravelerForm
 
-       admin.site.register(models.MyModel, MyModelAdmin)
+       admin.site.register(Traveler, TravelerAdmin)
 
    Remember to **always** initialize ``SearchableSelect`` with three
    keyword arguments: ``model``, ``search_field`` and ``many``.
@@ -103,10 +107,15 @@ Installation
    -  ``many`` must be ``True`` for ``ManyToManyField`` and ``False``
       for ``ForeignKey``.
 
+Example app
+===========
+
+Just run the project from `example` directory, head to http://127.0.0.1:8000, login as ``admin``/``admin`` and try adding Cats!
+
 Known issues
 ============
 
-- Not tested with empty fields.
+-  Not tested with empty fields.
 
 Contributing
 ============

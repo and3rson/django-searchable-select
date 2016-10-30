@@ -4,10 +4,13 @@ from setuptools import setup
 
 setup(
     name='django-searchable-select',
-    version='1.4.1',
+    version='1.4.2',
     description='django-searchable-select - a better and faster multiple selection widget with suggestions for Django',
     long_description="""django-searchable-select
 ========================
+
+.. Build Status:: https://travis-ci.org/and3rson/django-searchable-select.svg
+.. Coverage Status:: https://coveralls.io/repos/github/and3rson/django-searchable-select/badge.svg
 
 A better and faster multiple selection widget with suggestions for
 Django
