@@ -1,7 +1,7 @@
 from django import test
 from django.test.utils import override_settings
 from django.contrib.auth.models import User
-from example.models import Cat, Food
+from example.models import Cat, Food, Person
 from selenium import webdriver
 import selenium.webdriver.support.ui as ui
 import time
@@ -32,6 +32,15 @@ class GenericTest(test.LiveServerTestCase):
             Food(name='Whiskas')
         ])
 
+        Person.objects.bulk_create([
+            Person(name='Andrew'),
+            Person(name='David'),
+            Person(name='Mary'),
+            Person(name='Matthew'),
+            Person(name='Mike'),
+            Person(name='Victoria')
+        ])
+
     @override_settings(DEBUG=True)
     def test_foo(self):
         self.selenium.get(self.live_server_url + '/admin/')
@@ -55,17 +64,37 @@ class GenericTest(test.LiveServerTestCase):
             field = self.selenium.find_element_by_id('id_favorite_foods')
             field.send_keys(text)
 
-            wait.until(lambda driver: driver.find_elements_by_class_name('tt-suggestion'))
+            wait.until(lambda driver: driver.find_elements_by_css_selector('.field-favorite_foods .tt-suggestion'))
 
-            suggestions = self.selenium.find_elements_by_class_name('tt-suggestion')
+            suggestions = self.selenium.find_elements_by_css_selector('.field-favorite_foods .tt-suggestion')
             suggestions[0].click()
 
-            wait.until(lambda driver: driver.find_elements_by_class_name('chip'))
+            wait.until(lambda driver: driver.find_elements_by_css_selector('.field-favorite_foods .chip'))
+
             # Wait for suggestion animation to finish
             time.sleep(0.5)
 
         select_food('M')
         select_food('W')
+
+        # Select person
+
+        owner_field = self.selenium.find_element_by_id('id_owner')
+        owner_field.send_keys('An')
+
+        wait.until(lambda driver: driver.find_elements_by_css_selector('.field-owner .tt-suggestion'))
+
+        owner = self.selenium.find_elements_by_css_selector('.field-owner .tt-suggestion')
+        owner[0].click()
+
+        wait.until(lambda driver: driver.find_elements_by_css_selector('.field-owner .chip'))
+
+        # Wait for suggestion animation to finish
+        time.sleep(0.5)
+
+        wait.until(lambda driver: driver.find_elements_by_class_name('tt-suggestion'))
+
+        # Save cat record
 
         cat_name_input.submit()
 
@@ -77,3 +106,4 @@ class GenericTest(test.LiveServerTestCase):
         self.assertEqual(favorite_foods.count(), 2)
         self.assertIn(favorite_foods[0].name, ('Milk', 'Meat'))
         self.assertEqual(favorite_foods[1].name, 'Whiskas')
+        self.assertEqual(marusia.owner.name, 'Andrew')

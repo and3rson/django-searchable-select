@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 from searchableselect.widgets import SearchableSelect
-from .models import Cat, Food
+from .models import Cat, Food, Person
 
 
 class CatAdminForm(forms.ModelForm):
@@ -9,7 +9,8 @@ class CatAdminForm(forms.ModelForm):
         model = Cat
         exclude = ()
         widgets = {
-            'favorite_foods': SearchableSelect(model='example.Food', search_field='name', many=True)
+            'favorite_foods': SearchableSelect(model='example.Food', search_field='name', many=True),
+            'owner': SearchableSelect(model='example.Person', search_field='name', many=False),
         }
 
 
@@ -21,5 +22,10 @@ class FoodAdmin(admin.ModelAdmin):
     pass
 
 
+class PersonAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(Cat, CatAdmin)
 admin.site.register(Food, FoodAdmin)
+admin.site.register(Person, PersonAdmin)
