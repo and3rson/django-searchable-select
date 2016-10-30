@@ -77,6 +77,7 @@
                 $select.completion({
                     url: $select.attr('data-url') + '?model=' + $select.attr('data-model') + '&search_field=' + $select.attr('data-search-field') + '&q=',
                     onSelect: function (data) {
+                        console.log('Selected', JSON.stringify(data));
                         var $chip = $('<div/>').addClass('chip minimized').html(data.name).append(
                             $('<input/>').attr('type', 'hidden').attr('name', $select.attr('data-name')).attr('value', data.pk)
                         );

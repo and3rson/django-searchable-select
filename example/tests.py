@@ -67,8 +67,8 @@ class GenericTest(test.LiveServerTestCase):
 
             time.sleep(1)
 
-            for entry in driver.get_log('browser'):
-                print 'LOG:', entry
+            for entry in self.selenium.get_log('browser'):
+                print 'LOG:', entry['message']
 
             self.selenium.save_screenshot('/tmp/2.png')
 
