@@ -49,14 +49,14 @@
                         return $tpl.get(0);
                     }
                 }
-            }).on('typeahead:selected', function (e, data) {
+            }).on('typeahead:selected', (function (e, data) {
                 opts.onSelect(data);
-            }.bind(this)).on('input', function () {
-            }).on('keypress', function (e) {
+            }).bind(this)).on('input', function () {
+            }).on('keypress', (function (e) {
                 if (e.which == 13) {
                     opts.onEnter && opts.onEnter.call(this);
                 }
-            }.bind(this));
+            }).bind(this));
         };
 
         $('.searchable-select').each(function() {
