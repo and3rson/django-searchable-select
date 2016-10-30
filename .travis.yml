@@ -7,3 +7,5 @@ install:
 script:
 - coverage run example/manage.py test example/
 - coverage report
+after_success:
+- coveralls
