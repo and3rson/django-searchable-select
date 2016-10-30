@@ -62,6 +62,7 @@ class GenericTest(test.LiveServerTestCase):
             self.selenium.save_screenshot('/tmp/1.png')
 
             suggestions = self.selenium.find_elements_by_class_name('tt-suggestion')
+            print suggestions
             suggestions[0].click()
 
             time.sleep(1)
