@@ -1,6 +1,6 @@
 # django-searchable-select
 
-[![Build Status](https://travis-ci.org/and3rson/django-searchable-select.svg)](https://travis-ci.org/and3rson/django-searchable-select) [![Coverage Status](https://coveralls.io/repos/github/and3rson/django-searchable-select/badge.svg)](https://coveralls.io/github/and3rson/django-searchable-select?branch=master)
+[![Build Status](https://travis-ci.org/and3rson/django-searchable-select.svg)](https://travis-ci.org/and3rson/django-searchable-select) [![Coverage Status](https://coveralls.io/repos/github/and3rson/django-searchable-select/badge.svg?branch=master)](https://coveralls.io/github/and3rson/django-searchable-select?branch=master)
 
 A better and faster multiple selection widget with suggestions for Django
 
