@@ -3,9 +3,10 @@ python:
 - '2.7'
 install:
 - pip install tox
-- example/manage.py collectstatic --noinput
+- pip install pytest
 script:
 - coverage run `which tox`
+- coverage combine
 - coverage report
 after_success:
 - coveralls
