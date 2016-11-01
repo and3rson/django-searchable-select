@@ -5,7 +5,7 @@ install:
 - pip install tox
 - example/manage.py collectstatic --noinput
 script:
-- tox
+- coverage run `which tox`
 - coverage report
 after_success:
 - coveralls

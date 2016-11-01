@@ -12,7 +12,7 @@ urls = [
     url('^filter$', views.filter_models, name='searchable-select-filter'),
 ]
 
-if patterns:  # pragma: no cover
+if patterns:
     urlpatterns = patterns('', *urls)
 else:
     urlpatterns = urls
