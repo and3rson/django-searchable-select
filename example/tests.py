@@ -96,7 +96,7 @@ class GenericTest(test.LiveServerTestCase):
 
         # Save cat record
 
-        cat_name_input.submit()
+        self.selenium.find_elements_by_css_selector('[name="_continue"]')[0].click()
 
         wait.until(lambda driver: driver.find_elements_by_class_name('success'))
 
