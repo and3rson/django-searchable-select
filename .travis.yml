@@ -10,7 +10,7 @@ python:
 install:
 - pip install tox coverage python-coveralls
 script:
-- tox
+- tox -e py27-110
 - coverage combine
 - coverage report
 after_success:
