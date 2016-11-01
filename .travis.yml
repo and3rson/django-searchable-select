@@ -5,7 +5,7 @@ install:
 - pip install tox
 - pip install pytest
 script:
-- coverage run `which tox`
+- tox
 - coverage combine
 - coverage report
 after_success:
