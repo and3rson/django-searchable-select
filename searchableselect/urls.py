@@ -13,6 +13,6 @@ urls = [
 ]
 
 if patterns:  # pragma: no cover
-    urlpatterns = patterns('', urls)
+    urlpatterns = patterns('', *urls)
 else:
     urlpatterns = urls

@@ -89,6 +89,11 @@ You can use this as custom widget for `ManyToManyField`.
 
 Just run the project from `example` directory, head to http://127.0.0.1:8000, login as `admin`/`admin` and try adding Cats!
 
+# Supported versions
+
+  - Python 2.7.x: Django 1.7, 1.8, 1.9, 1.10
+  - Python 3.x: Django 1.8, 1.9, 1.10
+
 # Known issues
 
   - Not tested with empty fields.
