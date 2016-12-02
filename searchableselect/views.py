@@ -6,13 +6,7 @@ except ImportError:
     from django.apps import apps
     get_model = apps.get_model
 
-# Python 3.x
-try:
-    UNICODE_EXISTS = bool(type(unicode))
-except NameError:
-    def unicode(s):
-        str(s)
-
+from django.utils.encoding import smart_str
 from django.http import JsonResponse
 from django.contrib.admin.views.decorators import staff_member_required
 
@@ -27,7 +21,7 @@ def filter_models(request):
 
     values = model.objects.filter(**{'{}__icontains'.format(search_field): value})[:10]
     values = [
-        dict(pk=v.pk, name=unicode(v))
+        dict(pk=v.pk, name=smart_str(v))
         for v
         in values
     ]
