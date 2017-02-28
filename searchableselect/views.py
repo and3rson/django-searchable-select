@@ -16,8 +16,7 @@ def filter_models(request):
     model_name = request.GET.get('model')
     search_field = request.GET.get('search_field')
     value = request.GET.get('q')
-    limit = request.GET.get('limit', 10)
-
+    limit = int(request.GET.get('limit', 10))
     try:
         model = get_model(model_name)
     except LookupError as e:  # pragma: no cover
