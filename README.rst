@@ -106,7 +106,7 @@ Installation
       perform filtering, e. g. ‘name’
    -  ``many`` must be ``True`` for ``ManyToManyField`` and ``False``
       for ``ForeignKey``.
-   - ``limit`` (optional) specifies the maximum count of entries to retrieve.
+   -  ``limit`` (optional) specifies the maximum count of entries to retrieve.
 
 Example app
 ===========
