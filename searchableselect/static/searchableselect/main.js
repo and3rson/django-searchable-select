@@ -45,6 +45,7 @@
             var objects = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
+                limit: Infinity,
                 remote: {
                     url: opts.url,
                     replace: function (url, q) {
@@ -68,6 +69,7 @@
                 name: 'objects',
                 source: objects.ttAdapter(),
                 displayKey: 'matched_name',
+                limit: Infinity,
                 templates: {
                     loading: '<div class="tt-nothing-found">Loading</div>',
                     empty: '<div class="tt-nothing-found">Nothing found</div>',
@@ -103,7 +105,7 @@
                 });
 
                 $select.completion({
-                    url: $select.attr('data-url') + '?model=' + $select.attr('data-model') + '&search_field=' + $select.attr('data-search-field') + '&q=',
+                    url: $select.attr('data-url') + '?model=' + $select.attr('data-model') + '&search_field=' + $select.attr('data-search-field') + '&limit=' + $select.attr('data-limit') + '&q=',
                     onSelect: function (data) {
                         var $chip = $('<div/>').addClass('chip minimized').html(data.name).append(
                             $('<input/>').attr('type', 'hidden').attr('name', $select.attr('data-name')).attr('value', data.pk)

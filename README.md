@@ -69,7 +69,7 @@ You can use this as custom widget for `ManyToManyField`.
             model = Traveler
             exclude = ()
             widgets = {
-                'cities_visited': SearchableSelect(model='cities.City', search_field='name', many=True)
+                'cities_visited': SearchableSelect(model='cities.City', search_field='name', many=True, limit=10)
             }
     
     
@@ -84,6 +84,7 @@ You can use this as custom widget for `ManyToManyField`.
     - `model` is the string in form `APP_NAME.MODEL_NAME` representing your model in the project, e. g. 'cities.City'
     - `search_field` is the field within model that will be used to perform filtering, e. g. 'name'
     - `many` must be `True` for `ManyToManyField` and `False` for `ForeignKey`.
+    - `limit` (optional) specifies the maximum count of entries to retrieve.
 
 # Example app
 

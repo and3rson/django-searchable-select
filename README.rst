@@ -88,7 +88,7 @@ Installation
                model = Traveler
                exclude = ()
                widgets = {
-                   'cities_visited': SearchableSelect(model='cities.City', search_field='name')
+                   'cities_visited': SearchableSelect(model='cities.City', search_field='name', many=True, limit=10)
                }
 
 
@@ -106,6 +106,7 @@ Installation
       perform filtering, e. g. ‘name’
    -  ``many`` must be ``True`` for ``ManyToManyField`` and ``False``
       for ``ForeignKey``.
+   - ``limit`` (optional) specifies the maximum count of entries to retrieve.
 
 Example app
 ===========
