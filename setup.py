@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='django-searchable-select',
-    version='1.4.4-1',
+    version='1.4.4-2',
     description='django-searchable-select - a better and faster multiple selection widget with suggestions for Django',
     long_description="""django-searchable-select
 ========================
@@ -96,7 +96,7 @@ Installation
                model = Traveler
                exclude = ()
                widgets = {
-                   'cities_visited': SearchableSelect(model='cities.City', search_field='name')
+                   'cities_visited': SearchableSelect(model='cities.City', search_field='name', limit=10)
                }
 
 
@@ -115,6 +115,7 @@ Installation
    -  ``many`` must be ``True`` for ``ManyToManyField`` and ``False``
       for ``ForeignKey``.
    -  ``limit`` (optional) specifies the maximum count of entries to retrieve.
+      Defaults to 10.
 
 Example app
 ===========
