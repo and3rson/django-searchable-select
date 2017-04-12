@@ -35,7 +35,7 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
         self.model = kwargs.pop('model')
         self.search_field = kwargs.pop('search_field')
         self.many = kwargs.pop('many', True)
-        self.limit = kwargs.pop('limit', 10)
+        self.limit = int(kwargs.pop('limit', 10))
 
         super(SearchableSelect, self).__init__(*args, **kwargs)
 
