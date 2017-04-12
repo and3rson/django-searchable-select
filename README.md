@@ -108,7 +108,7 @@ Install them via `pip install -r requirements/dev.txt`
 
 To test things in specific environment, run the following commands:
 
-    ```bash
+    ```sh
     # Clear previous coverage data.
     coverage erase
 
