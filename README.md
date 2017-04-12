@@ -95,9 +95,59 @@ Just run the project from `example` directory, head to http://127.0.0.1:8000, lo
   - Python 2.7.x: Django 1.7, 1.8, 1.9, 1.10
   - Python 3.x: Django 1.8, 1.9, 1.10
 
+# Testing
+
+In order to support multiple Django and Python versions we use:
+
+  - `py.test` - test runner
+  - `tox` - handy tool to test app with different versions of Pythons & libraries
+  - `selenium`
+  - `coverage`
+
+Install them via `pip install -r requirements/dev.txt`
+
+To test things in specific environment, run the following commands:
+
+    ```bash
+    # Clear previous coverage data.
+    coverage erase
+
+    # This command can be ran multiple times.
+    tox -e <python_ver>-<django_ver>
+    # Possible python_ver values: `py27`, `py36`
+    # Possible django_ver values: `17`, `18`, `19`, `110`
+    # Values can be comma-seperated, e. g. `-e py27-17,py27-18,py36-18`
+    # If you omit `-e ...` parameter, all environments will be tests.
+    # Also - not problems with running this within a virtualenv.
+    # Check tox.ini for these values.
+
+    # Run this once all tests passed on all environment.
+    coverage combine
+
+    # Render HTML with coverage info.
+    coverage html
+    # ...or simply display % of covered SLOC for each file.
+    coverage report
+    ```
+
+To add a new Django version for testing, add it into `tox.ini`, lines 3-4.
+
+Why do we need `tox` and `coverage combine`? Because different versions of Python & libraries lead to different code execution: for example, consider this code:
+
+    ```python
+    import sys
+    if sys.version_info.major == 2:
+        foo = 'spam'  # Not covered in Python 3.x, leads to coverage < 100%
+    else:
+        foo = 'eggs'  # Not covered in Python 2.x, leads to coverage < 100%
+    ```
+
+Using `tox` and `coverage combine` we're able to "merge" coverage info from across different environments.
+
 # Known issues
 
   - Not tested with empty fields.
+  - Tests sometimes fail randomly due to some Selenium timeout issue. Weird.
 
 # Contributing
 

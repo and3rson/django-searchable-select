@@ -1,0 +1,6 @@
+coverage==4.2
+pytest==3.0.3
+pytest-cov==2.4.0
+pytest-django==3.0.0
+selenium==3.0.1
+tox==2.4.1
