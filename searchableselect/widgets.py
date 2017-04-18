@@ -50,8 +50,12 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
             self.many = False
 
         values = get_model(self.model).objects.filter(pk__in=value)
-
-        final_attrs = self.build_attrs(attrs, name=name)
+        try:
+            final_attrs = self.build_attrs(attrs, name=name)
+        except TypeError as e:
+            # Fallback for django 1.10+
+            final_attrs = self.build_attrs(attrs, extra_attrs={'name': name})
+            
 
         return render_to_string('searchableselect/select.html', dict(
             field_id=final_attrs['id'],
