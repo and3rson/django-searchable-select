@@ -1,5 +1,5 @@
 {% load i18n %}
-
+<script>var many={{ many|lower }}</script>
 <input type="text" id="{{ field_id }}" data-url="{% url 'searchable-select-filter' %}" data-name="{{ field_name }}" data-model="{{ model }}" data-search-field="{{ search_field }}" data-limit="{{ limit }}" class="searchable-select" placeholder="{% trans 'Start typing' %}" />
 
 <hr />
@@ -7,7 +7,7 @@
 <div id="{{ field_id }}-chips" class="chips">
     {% for value in values %}
         <div class="chip">
-        {{ value.name }}
+        {{ value }}
         <input type="hidden" name="{{ field_name }}" value="{{ value.pk }}" />
         </div>
     {% endfor %}
