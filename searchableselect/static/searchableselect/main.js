@@ -107,11 +107,16 @@
                 $select.completion({
                     url: $select.attr('data-url') + '?model=' + $select.attr('data-model') + '&search_field=' + $select.attr('data-search-field') + '&limit=' + $select.attr('data-limit') + '&q=',
                     onSelect: function (data) {
+						console.log(data);
                         var $chip = $('<div/>').addClass('chip minimized').html(data.name).append(
                             $('<input/>').attr('type', 'hidden').attr('name', $select.attr('data-name')).attr('value', data.pk)
                         );
-                        $chips.append($chip);
-                        $select.typeahead('val', '');
+						if(many){
+                        	$chips.append($chip);
+						}else{
+							$chips.html($chip);
+						}
+	                    $select.typeahead('val', '');
                         window.setTimeout(function () {
                             $chip.removeClass('minimized');
                         }, 0);
