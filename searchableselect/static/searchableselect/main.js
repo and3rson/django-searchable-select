@@ -110,7 +110,11 @@
                         var $chip = $('<div/>').addClass('chip minimized').html(data.name).append(
                             $('<input/>').attr('type', 'hidden').attr('name', $select.attr('data-name')).attr('value', data.pk)
                         );
-                        $chips.append($chip);
+                        if($select.attr('data-many') == '1') {
+                            $chips.append($chip);
+                        } else {
+                            $chips.html($chip);
+                        }
                         $select.typeahead('val', '');
                         window.setTimeout(function () {
                             $chip.removeClass('minimized');

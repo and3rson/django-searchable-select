@@ -1,6 +1,17 @@
 {% load i18n %}
 
-<input type="text" id="{{ field_id }}" data-url="{% url 'searchable-select-filter' %}" data-name="{{ field_name }}" data-model="{{ model }}" data-search-field="{{ search_field }}" data-limit="{{ limit }}" class="searchable-select" placeholder="{% trans 'Start typing' %}" />
+<input
+    type="text"
+    id="{{ field_id }}"
+    data-url="{% url 'searchable-select-filter' %}"
+    data-name="{{ field_name }}"
+    data-model="{{ model }}"
+    data-search-field="{{ search_field }}"
+    data-limit="{{ limit }}"
+    data-many="{% if many %}1{% else %}0{% endif %}"
+    class="searchable-select"
+    placeholder="{% trans 'Start typing' %}"
+/>
 
 <hr />
 

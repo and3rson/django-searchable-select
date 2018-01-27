@@ -46,8 +46,6 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
         if not isinstance(value, (list, tuple)):
             # This is a ForeignKey field. We must allow only one item.
             value = [value]
-        else:
-            self.many = False
 
         values = get_model(self.model).objects.filter(pk__in=value)
         try:
@@ -55,7 +53,6 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
         except TypeError as e:
             # Fallback for django 1.10+
             final_attrs = self.build_attrs(attrs, extra_attrs={'name': name})
-            
 
         return render_to_string('searchableselect/select.html', dict(
             field_id=final_attrs['id'],
