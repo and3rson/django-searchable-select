@@ -45,20 +45,32 @@ INSTALLED_APPS = [
     'example'
 ]
 
-MIDDLEWARE_CLASSES = []
+if LooseVersion(get_version()) >= LooseVersion('2.0'):
+    MIDDLEWARE = [
+        'django.middleware.security.SecurityMiddleware',
+        'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.messages.middleware.MessageMiddleware',
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ]
+else:
+    MIDDLEWARE_CLASSES = []
 
-if LooseVersion(get_version()) >= LooseVersion('1.8'):
-    MIDDLEWARE_CLASSES.append('django.middleware.security.SecurityMiddleware')
+    if LooseVersion(get_version()) >= LooseVersion('1.8'):
+        MIDDLEWARE_CLASSES.append('django.middleware.security.SecurityMiddleware')
 
-MIDDLEWARE_CLASSES.extend([
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-])
+    MIDDLEWARE_CLASSES.extend([
+        'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+        'django.contrib.messages.middleware.MessageMiddleware',
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ])
+
 
 ROOT_URLCONF = 'example.urls'
 

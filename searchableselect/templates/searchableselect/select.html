@@ -7,7 +7,7 @@
 <div id="{{ field_id }}-chips" class="chips">
     {% for value in values %}
         <div class="chip">
-        {{ value.name }}
+        {{ value }}
         <input type="hidden" name="{{ field_name }}" value="{{ value.pk }}" />
         </div>
     {% endfor %}
