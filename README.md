@@ -60,14 +60,14 @@ You can use this as custom widget for `ManyToManyField`.
         # ...
     )
     ```
-    
+
 4. Use the widget in your model admin class:
 
     ```python
     from django import models, forms
     from searchableselect.widgets import SearchableSelect
     from models import Traveler
-    
+
     class TravelerForm(forms.ModelForm):
         class Meta:
             model = Traveler
@@ -75,16 +75,16 @@ You can use this as custom widget for `ManyToManyField`.
             widgets = {
                 'cities_visited': SearchableSelect(model='cities.City', search_field='name', many=True, limit=10)
             }
-    
-    
+
+
     class TravelerAdmin(admin.ModelAdmin):
         form = TravelerForm
-        
+
     admin.site.register(Traveler, TravelerAdmin)
     ```
 
     Remember to **always** initialize `SearchableSelect` with three keyword arguments: `model`, `search_field` and `many`.
-    
+
     - `model` is the string in form `APP_NAME.MODEL_NAME` representing your model in the project, e. g. 'cities.City'
     - `search_field` is the field within model that will be used to perform filtering, e. g. 'name'
     - `many` must be `True` for `ManyToManyField` and `False` for `ForeignKey`.
@@ -97,7 +97,7 @@ Just run the project from `example` directory, head to http://127.0.0.1:8000, lo
 # Supported versions
 
   - Python 2.7.x: Django 1.7, 1.8, 1.9, 1.10
-  - Python 3.x: Django 1.8, 1.9, 1.10
+  - Python 3.x: Django 1.8, 1.9, 1.10, 2.0
 
 # Testing
 
@@ -119,7 +119,7 @@ coverage erase
 # This command can be ran multiple times.
 tox -e <python_ver>-<django_ver>
 # Possible python_ver values: `py27`, `py36`
-# Possible django_ver values: `17`, `18`, `19`, `110`
+# Possible django_ver values: `17`, `18`, `19`, `110`, '20'
 # Values can be comma-seperated, e. g. `-e py27-17,py27-18,py36-18`
 # If you omit `-e ...` parameter, all environments will be tests.
 # Also - not problems with running this within a virtualenv.
