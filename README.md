@@ -4,6 +4,10 @@
 
 A better and faster multiple selection widget with suggestions for Django
 
+## This project is looking for maintainers!
+
+Please open an issue to request write access.
+
 # What is this?
 
 This plugin provides a replacement for standard multi-choice select on Django admin pages.
