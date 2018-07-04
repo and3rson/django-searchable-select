@@ -3,6 +3,15 @@ from django import forms
 try:
     # Django <=1.9
     from django.db.models.loading import get_model
+
+    # Django 1.6.*
+    import django
+    if django.VERSION[0] == 1 and django.VERSION == 6:
+        def get_model_wrapper(model):
+            get_model(*model.split('.'))
+
+        get_model = get_model_wrapper
+
 except ImportError:
     # Django 1.10+
     from django.apps import apps
