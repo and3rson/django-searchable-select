@@ -6,7 +6,7 @@ try:
 
     # Django 1.6.*
     import django
-    if django.VERSION[0] == 1 and django.VERSION == 6:
+    if django.VERSION[0] == 1 and django.VERSION[1] == 6:
         def get_model_wrapper(model):
             get_model(*model.split('.'))
 
