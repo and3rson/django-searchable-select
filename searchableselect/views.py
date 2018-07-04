@@ -16,7 +16,25 @@ except ImportError:
     get_model = apps.get_model
 
 from django.utils.encoding import smart_str
-from django.http import JsonResponse
+from django.http import HttpResponse
+
+try:
+    from django.http import JsonResponse
+except ImportError as e:
+    # Django < 1.7
+    from django.utils import simplejson
+    class JsonResponse(HttpResponse):
+        """
+            JSON response
+        """
+        def __init__(self, content, mimetype='application/json', status=None, content_type=None):
+            super(JsonResponse, self).__init__(
+                content=simplejson.dumps(content),
+                mimetype=mimetype,
+                status=status,
+                content_type=content_type,
+    )
+
 from django.contrib.admin.views.decorators import staff_member_required
 
 
