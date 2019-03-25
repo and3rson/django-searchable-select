@@ -8,7 +8,7 @@ except ImportError:
     from django.apps import apps
     get_model = apps.get_model
 
-from django.template.loader import render_to_string
+from django.forms.widgets import get_default_renderer
 from django.utils.datastructures import MultiValueDict
 try:
     from django.utils.datastructures import MergeDict
@@ -39,7 +39,10 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
 
         super(SearchableSelect, self).__init__(*args, **kwargs)
 
-    def render(self, name, value, attrs=None, choices=()):
+    def render(self, name, value, attrs=None, choices=(), renderer=None):
+        if renderer is None:
+            renderer = get_default_renderer()
+
         if value is None:
             value = []
 
@@ -54,7 +57,7 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
             # Fallback for django 1.10+
             final_attrs = self.build_attrs(attrs, extra_attrs={'name': name})
 
-        return render_to_string('searchableselect/select.html', dict(
+        return renderer.render('searchableselect/select.html', dict(
             field_id=final_attrs['id'],
             field_name=final_attrs['name'],
             values=values,
