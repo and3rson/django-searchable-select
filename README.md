@@ -120,7 +120,7 @@ coverage erase
 tox -e <python_ver>-<django_ver>
 # Possible python_ver values: `py27`, `py36`
 # Possible django_ver values: `17`, `18`, `19`, `110`, '20'
-# Values can be comma-seperated, e. g. `-e py27-17,py27-18,py36-18`
+# Values can be comma-separated, e. g. `-e py27-17,py27-18,py36-18`
 # If you omit `-e ...` parameter, all environments will be tests.
 # Also - not problems with running this within a virtualenv.
 # Check tox.ini for these values.
