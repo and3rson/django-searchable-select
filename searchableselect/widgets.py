@@ -39,7 +39,7 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
 
         super(SearchableSelect, self).__init__(*args, **kwargs)
 
-    def render(self, name, value, attrs=None, choices=()):
+    def render(self, name, value, attrs=None, renderer=None, choices=()):
         if value is None:
             value = []
 
