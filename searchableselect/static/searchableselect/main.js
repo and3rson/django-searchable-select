@@ -121,7 +121,7 @@
                         }, 0);
                     },
                     onEnter: function () {
-                        $(this).parent().find('.tt-dataset .tt-suggestion.tt-selectable').first().trigger('click');
+                        $(this).parent().find('.tt-open .tt-dataset .tt-suggestion.tt-selectable').first().trigger('click');
                     }
                 });
             })($select);
