@@ -86,6 +86,9 @@ DATABASES = {
     }
 }
 
+# Use default autofield when PK is not defined (Django 3.2+)
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
