@@ -1,8 +1,6 @@
 # django-searchable-select
 
-[![Build Status](https://travis-ci.org/and3rson/django-searchable-select.svg)](https://travis-ci.org/and3rson/django-searchable-select) [![Coverage Status](https://coveralls.io/repos/github/and3rson/django-searchable-select/badge.svg?branch=master)](https://coveralls.io/github/and3rson/django-searchable-select?branch=master)
-
-A better and faster multiple selection widget with suggestions for Django
+A better and faster multiple selection widget with suggestions for Django.
 
 ## This project is looking for maintainers!
 
@@ -96,8 +94,7 @@ Just run the project from `example` directory, head to http://127.0.0.1:8000, lo
 
 # Supported versions
 
-  - Python 2.7.x: Django 1.7, 1.8, 1.9, 1.10
-  - Python 3.x: Django 1.8, 1.9, 1.10, 2.0
+  - Python 3.5+ and Django 2.2, 3.0, 3.2 or 4.0.
 
 # Testing
 
@@ -118,9 +115,9 @@ coverage erase
 
 # This command can be ran multiple times.
 tox -e <python_ver>-<django_ver>
-# Possible python_ver values: `py27`, `py36`
-# Possible django_ver values: `17`, `18`, `19`, `110`, '20'
-# Values can be comma-separated, e. g. `-e py27-17,py27-18,py36-18`
+# Possible python_ver values: `py35`, `py310`
+# Possible django_ver values: `22`, `30`, `32`, '40'
+# Values can be comma-separated, e. g. `-e py35-22,py310-32,py310-40`
 # If you omit `-e ...` parameter, all environments will be tests.
 # Also - not problems with running this within a virtualenv.
 # Check tox.ini for these values.
@@ -134,7 +131,7 @@ coverage html
 coverage report
 ```
 
-To add a new Django version for testing, add it into `tox.ini`, lines 3-4.
+To add a new Django version for testing, add it into `tox.ini`.
 
 Why do we need `tox` and `coverage combine`? Because different versions of Python & libraries lead to different code execution: for example, consider this code:
 

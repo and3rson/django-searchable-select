@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='django-searchable-select',
-    version='1.5.0',
+    version='2.0b1',
     description='django-searchable-select - a better and faster multiple selection widget with suggestions for Django',
     long_description="""django-searchable-select
 ========================
@@ -125,8 +125,8 @@ Just run the project from `example` directory, head to http://127.0.0.1:8000, lo
 Supported versions
 ==================
 
--  Python 2.7.x: Django 1.7, 1.8, 1.9, 1.10
--  Python 3.x: Django 1.8, 1.9, 1.10, 2.0
+-  Python: 3.5+ required.
+-  Django: 2.2+ required.
 
 Known issues
 ============

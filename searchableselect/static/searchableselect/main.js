@@ -1,5 +1,5 @@
 (function() {
-    var $ = jQuery.noConflict(true);
+    var $ = django.jQuery.noConflict(true);
     // https://github.com/ariya/phantomjs/issues/10522
     if (!Function.prototype.bind) {
         Function.prototype.bind = function(oThis) {

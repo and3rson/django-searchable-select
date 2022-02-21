@@ -1,10 +1,5 @@
-try:
-    # Django <=1.9
-    from django.db.models.loading import get_model
-except ImportError:
-    # Django 1.10+
-    from django.apps import apps
-    get_model = apps.get_model
+from django.apps import apps
+get_model = apps.get_model
 
 from django.utils.encoding import smart_str
 from django.http import JsonResponse

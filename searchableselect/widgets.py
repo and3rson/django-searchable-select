@@ -1,12 +1,7 @@
 from django import forms
 
-try:
-    # Django <=1.9
-    from django.db.models.loading import get_model
-except ImportError:
-    # Django 1.10+
-    from django.apps import apps
-    get_model = apps.get_model
+from django.apps import apps
+get_model = apps.get_model
 
 from django.template.loader import render_to_string
 from django.utils.datastructures import MultiValueDict
@@ -25,7 +20,8 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
             )
         }
         js = (
-            'searchableselect/jquery-2.2.4.min.js',
+            'admin/js/vendor/jquery/jquery.min.js',
+            'admin/js/jquery.init.js',
             'searchableselect/bloodhound.min.js',
             'searchableselect/typeahead.jquery.min.js',
             'searchableselect/main.js',
@@ -48,11 +44,7 @@ class SearchableSelect(forms.CheckboxSelectMultiple):
             value = [value]
 
         values = get_model(self.model).objects.filter(pk__in=value)
-        try:
-            final_attrs = self.build_attrs(attrs, name=name)
-        except TypeError as e:
-            # Fallback for django 1.10+
-            final_attrs = self.build_attrs(attrs, extra_attrs={'name': name})
+        final_attrs = self.build_attrs(attrs, extra_attrs={'name': name})
 
         return render_to_string('searchableselect/select.html', dict(
             field_id=final_attrs['id'],

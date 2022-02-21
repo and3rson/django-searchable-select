@@ -1,11 +1,9 @@
 django-searchable-select
 ========================
 
-.. figure:: https://travis-ci.org/and3rson/django-searchable-select.svg
 .. figure:: https://coveralls.io/repos/github/and3rson/django-searchable-select/badge.svg
 
-A better and faster multiple selection widget with suggestions for
-Django
+A better and faster multiple selection widget with suggestions for Django.
 
 What is this?
 =============
@@ -116,8 +114,7 @@ Just run the project from `example` directory, head to http://127.0.0.1:8000, lo
 Supported versions
 ==================
 
--  Python 2.7.x: Django 1.7, 1.8, 1.9, 1.10
--  Python 3.x: Django 1.8, 1.9, 1.10
+- Python 3.5+ and Django 2.2, 3.0, 3.2 or 4.0.
 
 Known issues
 ============

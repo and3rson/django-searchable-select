@@ -1,4 +1,4 @@
-Django==1.10.2
-selenium==3.0.1
-coverage==4.2
+Django~=3.2
+selenium==3.141.0
+coverage==4.0.3
 python-coveralls==2.9.0
