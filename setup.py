@@ -79,7 +79,7 @@ Installation
        urlpatterns = patterns(
            '',
            # ...
-           url('^searchableselect/', include('searchableselect.urls')),
+           re_path('^searchableselect/', include('searchableselect.urls')),
            # ...
        )
 
@@ -125,8 +125,7 @@ Just run the project from `example` directory, head to http://127.0.0.1:8000, lo
 Supported versions
 ==================
 
--  Python: 3.5+ required.
--  Django: 2.2+ required.
+- Python 3.5+ and Django 2.2, 3.0, 3.2 or 4.0.
 
 Known issues
 ============

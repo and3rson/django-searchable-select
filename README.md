@@ -54,7 +54,7 @@ You can use this as custom widget for `ManyToManyField`.
     urlpatterns = patterns(
         '',
         # ...
-        url('^searchableselect/', include('searchableselect.urls')),
+        re_path('^searchableselect/', include('searchableselect.urls')),
         # ...
     )
     ```
@@ -115,9 +115,9 @@ coverage erase
 
 # This command can be ran multiple times.
 tox -e <python_ver>-<django_ver>
-# Possible python_ver values: `py35`, `py310`
-# Possible django_ver values: `22`, `30`, `32`, '40'
-# Values can be comma-separated, e. g. `-e py35-22,py310-32,py310-40`
+# Some python_ver values: `py3.5`, `py3.10`
+# Some django_ver values: `dj2.2`, 'dj4.0'
+# Values can be comma-separated, e. g. `-e py3.5-dj2.2,py3.10-dj3.2,py3.10-dj4.0`
 # If you omit `-e ...` parameter, all environments will be tests.
 # Also - not problems with running this within a virtualenv.
 # Check tox.ini for these values.
