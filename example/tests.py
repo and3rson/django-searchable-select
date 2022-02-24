@@ -3,6 +3,7 @@ from django.test.utils import override_settings
 from django.contrib.auth.models import User
 from example.models import Cat, Food, Person
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import selenium.webdriver.support.ui as ui
 import time
 
@@ -14,7 +15,9 @@ class GenericTest(test.LiveServerTestCase):
     in admin site to update many-to-many field.
     """
     def setUp(self):
-        self.selenium = webdriver.PhantomJS()
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        self.selenium = webdriver.Chrome(options=chrome_options)
         # self.selenium.maximize_window()
         super(GenericTest, self).setUp()
 
