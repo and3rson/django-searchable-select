@@ -47,7 +47,7 @@ Installation
 
        $ pip install django-searchable-select
 
-2. Add ‘searchableselect’ to your settings.
+2. Add ``'searchableselect'`` to your settings.
 
    .. code:: python
 
@@ -69,7 +69,7 @@ Installation
        urlpatterns = patterns(
            '',
            # ...
-           url('^searchableselect/', include('searchableselect.urls')),
+           re_path('^searchableselect/', include('searchableselect.urls')),
            # ...
        )
 
