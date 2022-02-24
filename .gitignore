@@ -9,7 +9,7 @@ __pycache__/
 .Python
 env/
 .env/
-venv/
+venv*/
 .venv/
 build/
 develop-eggs/
@@ -61,3 +61,18 @@ target/
 
 # Collected static
 /example/static
+
+# Eclipse
+.settings
+.project
+.pydevproject
+.directory
+
+# IDEA / PyCharm
+.idea
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/

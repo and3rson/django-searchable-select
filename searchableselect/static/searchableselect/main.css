@@ -1,10 +1,4 @@
-.twitter-typeahead {
-    width: 100%;
-    /*font-size: 1rem;*/
-}
-
 .twitter-typeahead .tt-input {
-    width: 100% !important;
     box-sizing: border-box;
 }
 
@@ -53,8 +47,14 @@
     color: #1f1f1e;
 }
 
+.twitter-typeahead + hr {
+    background-color: transparent;
+}
+
 form .chips {
     font-size: 0;
+    width: 100%;
+    background-color: transparent;
 }
 
 form .chips .chip {
