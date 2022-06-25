@@ -1,4 +1,8 @@
-from django.conf.urls import url
+try:
+    from django.conf.urls import url
+except ImportError:
+    # Django > 2.x
+    from django.urls import re_path as url
 try:
     # Django <=1.9
     from django.conf.urls import patterns
